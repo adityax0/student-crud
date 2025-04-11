@@ -1,0 +1,31 @@
+<form action="{{ url_for('edit_student',id=student[0]) }}" method="POST">
+    <h2>Edit Student</h2>
+    <label for="name">Name:</label>
+            <input type="text" id="name" name="name" value="{{student[1]}}" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{student[2]}}" required>
+
+            <label for="phone">Contact:</label>
+            <input type="text" id="phone" name="phone" value="{{student[3]}}"  required>
+
+            <label for="section">
+                Section:
+            </label>
+            <select name="section" id="section" value="{{student[4]}}">
+                <option value="A">A Section</option>
+                <option value="B">B Section</option>
+            </select> 
+            
+            <label for="college">college:</label>
+            <input type="text" id="college" name="college" value="{{student[5]}}" required>
+
+            <label for="address">Address:</label>
+            <textarea name="address" id="address" rows="5"  cols="40">{{% student[6] %}}</textarea>
+
+
+
+
+    <input type="submit" value="Update Customer">
+</form>
+<a href="{{ url_for('view_customers') }}">Cancel</a>
