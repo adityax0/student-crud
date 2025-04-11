@@ -34,7 +34,6 @@ def add_student():
         name = request.form['name']
         email = request.form['email']
         contact= request.form['contact']       
-        # address = request.form['address']       
         section = request.form["section"]
         college = request.form['college']
         
@@ -87,7 +86,7 @@ def edit_student(id):
     return render_template('edit_student.html', student=student)
     
 
-@app.route('/delete_student/<int:id>', methods=['GET','POST'])
+@app.route('/delete_student/<int:id>', methods=['POST'])
 def delete_customer(id):
     print("delete student::",id)
     connection = pymysql.connect(**db_config)
@@ -103,7 +102,7 @@ def delete_customer(id):
 
 
 if __name__ == '__main__':
-    app.run(port=5000, debug=True)
+    app.run(port=5000, debug=True,host='0.0.0.0')
 
 # from flask import Flask, render_template, request, redirect, url_for
 # import pymysql
